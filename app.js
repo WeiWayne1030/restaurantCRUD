@@ -1,6 +1,9 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const exphbs = require('express-handlebars')
+
+const Restaurant = require('./models/restaurant')
+
 const app = express()
 const port = 3001
 
@@ -26,6 +29,13 @@ db.on('error', () => {
 
 db.once('open', () =>{
   console.log('mongoDB connected!')
+})
+
+app.get('/', (req, res) =>{
+  return Restaurant.find({})
+    .lean()
+    .then((restaurants) => res.render('index', { restaurants }))
+    .catch(error => console.log(error))
 })
 
 

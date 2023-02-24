@@ -4,6 +4,9 @@ const exphbs = require('express-handlebars')
 const app = express()
 const port = 3001
 
+//設定靜態資料
+app.use(express.static('public'))
+
 app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
 app.set('view engine', 'hbs')
 
@@ -27,7 +30,7 @@ db.once('open', () =>{
 
 
 app.get('/', (req, res) => {
-  res.send('this is my rslist')
+  res.render('index')
 })
 
 app.listen(port, () =>{

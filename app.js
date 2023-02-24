@@ -1,7 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const exphbs = require('express-handlebars')
-
+const bodyParser = require('body-parser')
 const Restaurant = require('./models/restaurant')
 
 const app = express()
@@ -32,13 +32,25 @@ db.once('open', () =>{
 })
 
 // 用 app.use 規定每一筆請求都需要透過 body-parser 進行前置處理
-app.use(urlencoded({ extended: true }))
+app.use(bodyParser.urlencoded({ extended: true }))
 
+//預覽全部資料
 app.get('/', (req, res) =>{
   return Restaurant.find({})
     .lean()
     .then((restaurants) => res.render('index', { restaurants }))
     .catch(error => console.log(error))
+})
+
+//新增一筆資料
+app.get('/restaurants/new', (req, res) =>{
+  return res.render('new')
+})
+
+app.post('/restaurants', (req, res) => {
+  Restaurant.create(req.body)
+    .then(() => res.redirect('/'))
+    .catch(err => console.log(err))
 })
 
 

@@ -2,6 +2,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
+const methodOverride = require('method-override')
 const Restaurant = require('./models/restaurant')
 
 const app = express()
@@ -9,6 +10,8 @@ const port = 3001
 
 //設定靜態資料
 app.use(express.static('public'))
+//每一筆請求都會透過 methodOverride 進行前置處理
+app.use(methodOverride('_method'))
 
 app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
 app.set('view engine', 'hbs')
@@ -71,7 +74,7 @@ app.get('/restaurants/:id/edit', (req, res) => {
     .catch(err => console.log(err))
 })
 
-app.post('/restaurants/:id/edit', (req, res) =>{
+app.put('/restaurants/:id', (req, res) =>{
   const id = req.params.id
   Restaurant.findById(id)
     .then(restaurant => {
@@ -83,7 +86,7 @@ app.post('/restaurants/:id/edit', (req, res) =>{
 })
 
 //刪除特定餐廳
-app.post('/restaurants/:id/delete', (req, res) => {
+app.delete('/restaurants/:id', (req, res) => {
   const id = req.params.id
   return Restaurant.findById(id)
     .then(restaurant => { restaurant.remove() })

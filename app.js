@@ -53,6 +53,17 @@ app.post('/restaurants', (req, res) => {
     .catch(err => console.log(err))
 })
 
+//預覽特定餐廳
+app.get('/restaurants/:id', (req, res) => {
+  const id = req.params.id
+  return Restaurant.findById(id)
+    .lean()
+    .then((restaurant) => res.render('detail', {restaurant}))
+    .catch(err => console.log(err))
+})
+
+
+
 
 app.get('/', (req, res) => {
   res.render('index')

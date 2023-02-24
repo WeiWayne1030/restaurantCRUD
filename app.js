@@ -31,6 +31,9 @@ db.once('open', () =>{
   console.log('mongoDB connected!')
 })
 
+// 用 app.use 規定每一筆請求都需要透過 body-parser 進行前置處理
+app.use(urlencoded({ extended: true }))
+
 app.get('/', (req, res) =>{
   return Restaurant.find({})
     .lean()

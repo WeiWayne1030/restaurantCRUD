@@ -62,12 +62,26 @@ app.get('/restaurants/:id', (req, res) => {
     .catch(err => console.log(err))
 })
 
-
-
-
-app.get('/', (req, res) => {
-  res.render('index')
+//修改特定餐廳
+app.get('/restaurants/:id/edit', (req, res) => {
+  const id = req.params.id
+  Restaurant.findById(id)
+    .lean()
+    .then((restaurant) => res.render('edit', { restaurant }))
+    .catch(err => console.log(err))
 })
+
+app.post('/restaurants/:id/edit', (req, res) =>{
+  const id = req.params.id
+  Restaurant.findById(id)
+    .then(restaurant => {
+      restaurant = Object.assign(restaurant, req.body)
+      return restaurant.save()
+    })
+    .then(()=> res.redirect(`/restaurants/${id}`))
+    .catch(err => console.log(err))
+})
+
 
 app.listen(port, () =>{
   console.log('Express is listening on http://localhost:3001')

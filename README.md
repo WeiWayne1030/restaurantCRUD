@@ -67,7 +67,13 @@ cd restaurantList
 在 Terminal 輸入 npm install -g nodemon
 ```
 
-6. 啟動伺服器，輸入執行專案
+6. 啟動 seed
+
+```
+使用 npm run seed 執行
+```
+
+7. 啟動伺服器，輸入執行專案
 
 ```
 使用 npm run dev 執行

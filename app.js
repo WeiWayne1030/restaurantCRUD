@@ -38,6 +38,13 @@ app.use(bodyParser.urlencoded({ extended: true }))
 //呼叫passport，傳入app
 usePassport(app)
 
+//middleware(放進locals)
+app.use((req, res, next) => {
+  res.locals.isAuthenticated = req.isAuthenticated()
+  res.locals.user = req.user
+  next()
+})
+
 //設定routes
 app.use(routes)
 

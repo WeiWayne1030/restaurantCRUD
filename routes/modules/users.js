@@ -11,7 +11,7 @@ router.get('/login', (req, res) =>{
 
 router.post('/login', passport.authenticate('local', {
   successRedirect: '/',
-  failureRedirect: '/users/login'
+  failureRedirect: '/users/login',
 }))
 
 router.get('/register', (req, res) => {
@@ -42,7 +42,8 @@ router.post('/register', (req, res) => {
     //重新導向登入頁
     if(user) {
       errors.push({ message: '這個 Email 已經註冊過了。' })
-      res.render('register', {
+      return res.render('register', {
+        errors,
         name,
         email,
         password,

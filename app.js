@@ -5,7 +5,12 @@ const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
 const flash = require('connect-flash')
 
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config()
+}
+
 const routes = require('./routes')
+const PORT = process.env.PORT
 
 //要在載入session之後
 const usePassport = require('./config/passport')
@@ -28,7 +33,7 @@ app.set('view engine', 'hbs')
 
 //session套件
 app.use(session({
-  secret:'213213@qwfdwqf',
+  secret: process.env.mySecret,
   resave: false,
   saveUninitialized: true
 }))
@@ -55,5 +60,5 @@ app.use(routes)
 
 
 app.listen(port, () =>{
-  console.log('Express is listening on http://localhost:3001')
+  console.log(`Express is listening on http://localhost:${PORT}`)
 })

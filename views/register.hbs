@@ -2,7 +2,7 @@
   <div class="col-md-6 m-auto">
     <div class="card card-body">
       <h1 class="text-center mt-3">Register</h1>
-
+      {{> message}}
       <form action="/users/register" method="POST">
         <div class="mb-3">
           <label for="name" class="mb-2">Name</label>
@@ -21,11 +21,11 @@
           <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" placeholder="Confirm Password">
         </div>
         <div class="md-2 btn d-grid">
-          <button type="submit" class="btn btn-warning">Login</button>
+          <button type="submit" class="btn btn-warning">Register</button>
         </div>
       </form>
       <p class="lead mt-4">
-          Have An Account? <a href="/users/login">Login</a>
+          Have An Account? <a href="/users/login" class="btn btn-secondary">Login</a>
       </p>
     </div>
   </div>

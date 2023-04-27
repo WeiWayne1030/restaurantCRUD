@@ -2,7 +2,7 @@
 
 一個使用 Node.js + Express 打造的餐廳美食網站，可依照餐廳名稱與類別進行搜尋及預覽。
 
-[Demo Website](http://localhost:3002/)
+[Demo Website](http://localhost:3001/)
 
 ## 專案畫面
 
@@ -13,27 +13,19 @@
 
 ## Features - 產品功能
 
-1. 使用者可以點擊 detail 查看任一餐廳，查看更多餐廳資訊，如地址、電話與簡介
-2. 使用者可以依照中文名稱、英文名稱與餐廳類別進行搜尋
-3. 使用者可以利用右上角的新增餐廳加入自己喜歡的餐廳
-4. 使用者可以修改，刪除餐廳資訊打造自己喜歡的餐廳菜單
+1. 使用者可以自行註冊登入或藉由 Facebook 快速註冊登入
+2. 使用者可以點擊任一餐廳，查看更多餐廳資訊，如地址、電話與簡介
+3. 使用者可以依照中文名稱、英文名稱進行搜尋
+4. 使用者可以新增一家餐廳
+5. 使用者可以瀏覽一家餐廳的詳細資訊
+6. 使用者可以瀏覽全部所有餐廳
+7. 使用者可以修改一家餐廳的資訊
+8. 使用者可以刪除一家餐廳
 
 ## Environment SetUp - 環境建置
 
 1. [Node.js](https://nodejs.org/en/)
 2. [MongoDB4.0 以上]（https://www.mongodb.com/try/download/community）
-
-## Using tool - 使用工具
-
-1. Node.js v12.22.12
-2. Nodemon
-3. Express v4.16.4
-4. Express-Handlebars v3.0.0
-5. Bootstrap v5.3.0
-6. front-awesome v5.8.1
-7. mongoose v6.10
-8. dotenv v16.0.3
-9. method-override: v3.0.0
 
 ## Installing - 專案安裝流程
 
@@ -67,7 +59,7 @@ cd restaurantList
 在 Terminal 輸入 npm install -g nodemon
 ```
 
-6. 啟動 seed
+6. 啟動種子檔案
 
 ```
 使用 npm run seed 執行
@@ -76,7 +68,7 @@ cd restaurantList
 7. 啟動伺服器，輸入執行專案
 
 ```
-使用 npm run dev 執行
+使用 nodemon app.js 執行
 ```
 
 7. 當 terminal 出現以下字樣，表示伺服器與資料庫已啟動並成功連結

@@ -6,8 +6,8 @@
 
 ## 專案畫面
 
-![image](https://github.com/WeiWayne1030/restaurantList/blob/main/public/index.png)
-![image](https://github.com/WeiWayne1030/restaurantList/blob/main/public/login page.png)
+![image](https://github.com/WeiWayne1030/restaurantCRUD/blob/main/public/index.png)
+![image](https://github.com/WeiWayne1030/restaurantCRUD/blob/main/public/login page.png)
 ![image](https://github.com/WeiWayne1030/restaurantList/blob/main/public/detailPage.png)
 ![image](https://github.com/WeiWayne1030/restaurantList/blob/main/public/editPage.png)
 ![image](https://github.com/WeiWayne1030/restaurantList/blob/main/public/createPage.png)

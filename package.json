@@ -19,7 +19,7 @@
   "scripts": {
     "dev": "nodemon app.js",
     "test": "standard && node app.js",
-    "seed": "node models/seeds/todoSeeder.js"
+    "seed": "node models/seeds/restaurantSeeder.js"
   },
   "keywords": [],
   "author": "",

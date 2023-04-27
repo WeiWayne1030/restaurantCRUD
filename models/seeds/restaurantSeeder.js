@@ -10,8 +10,6 @@ const { blockParams } = require('handlebars')
 const restaurantList = require("../../restaurant.json").results
 const User = require('../user')
 
-let user1_Id = ""
-let user2_Id = ""
 
 const SEED_USER = [
   {
@@ -27,7 +25,7 @@ const SEED_USER = [
 ]
 
 db.once('open', () => {
-  console.log('running restaurantSeeder.js ...')
+  console.log('running restaurantSeeder.js...')
   bcrypt
     .genSalt(10)
     .then(salt =>

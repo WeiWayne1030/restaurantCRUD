@@ -3,16 +3,15 @@
   <form action="/restaurants" method="POST">
     <div class="mb-3">
       <label for="name" class="form-label">店名<span class="text-danger">*</span></label>
-      <input type="text" class="form-control" id="name" placeholder="name" name="name" required />
+      <input type="text" class="form-control" id="name" placeholder="name" name="name" maxlength="20" required />
     </div>
     <div class="mb-3">
       <label for="name_en" class="form-label">英文店名<span class="text-danger">*</span></label>
-      <input type="text" class="form-control" id="name_en" placeholder="name_en" name="name_en" required />
+      <input type="text" class="form-control" id="name_en" placeholder="name_en" name="name_en" maxlength="20" required />
     </div>
     <div class="mb-3">
-      <label for="category" class="form-label">分類<span class="text-danger">*</span></label>
-      <input type="text" class="form-control" id="category" placeholder="美式" list="categoryOptions" name="category"
-        required />
+      <label for="category" class="form-label" maxlength="20">分類<span class="text-danger">*</span></label>
+      <input type="text" class="form-control" id="category" placeholder="美式" list="categoryOptions" name="category" maxlength="20" required />
       {{! 使用datalist，讓使用者可選擇或自行輸入 }}
       <datalist id="categoryOptions">
         <option>美式</option>
@@ -28,15 +27,15 @@
     </div>
     <div class="mb-3">
       <label for="location" class="form-label">地址<span class="text-danger">*</span></label>
-      <input type="text" class="form-control" id="location" placeholder="台中市北屯區迷有這條路520號" name="location" required />
+      <input type="text" class="form-control" id="location" placeholder="台中市北屯區迷有這條路520號" name="location" maxlength="40" required />
     </div>
     <div class="mb-3">
       <label for="phone" class="form-label">電話<span class="text-danger">*</span></label>
-      <input type="tel" class="form-control" id="phone" placeholder="04-23456789" name="phone" required />
+      <input type="tel" class="form-control" id="phone" placeholder="04-23456789" name="phone" maxlength="20" required />
     </div>
     <div class="mb-3">
       <label for="google_map" class="form-label">Google地圖連結<span class="text-danger">*</span></label>
-      <input type="url" class="form-control" id="google_map" name="google_map" required />
+      <input type="url" class="form-control" id="google_map" name="google_map" maxlength="20" required />
     </div>
     <div class="mb-3">
       <label for="rating" class="form-label">評分<span class="text-danger">*</span></label>
@@ -44,7 +43,7 @@
     </div>
     <div class="mb-3">
       <label for="description" class="form-label">敘述<span class="text-danger">*</span></label>
-      <textarea class="form-control" id="description" rows="3" name="description" required></textarea>
+      <textarea class="form-control" id="description" rows="3" name="description" maxlength="100" required></textarea>
     </div>
     <div class="text-center">
       <button type="submit" class="btn btn-primary">

@@ -6,7 +6,6 @@ if (process.env.NODE_ENV !== 'production') {
 
 const Restaurant = require("../restaurant")
 const db = require('../../config/mongoose')
-const { blockParams } = require('handlebars')
 const restaurantList = require("../../restaurant.json").results
 const User = require('../user')
 

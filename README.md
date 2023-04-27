@@ -68,7 +68,7 @@ cd restaurantList
 7. 啟動伺服器，輸入執行專案
 
 ```
-使用 nodemon app.js 執行
+使用 npm run dev 執行
 ```
 
 7. 當 terminal 出現以下字樣，表示伺服器與資料庫已啟動並成功連結

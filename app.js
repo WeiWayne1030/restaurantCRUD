@@ -33,7 +33,7 @@ app.set('view engine', 'hbs')
 
 //session套件
 app.use(session({
-  secret: process.env.mySecret,
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: true
 }))

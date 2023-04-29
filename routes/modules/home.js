@@ -2,12 +2,14 @@ const express = require('express')
 const router = express.Router()
 const Restaurant = require('../../models/restaurant')
 
-router.get('/', (req, res) =>{
-  const userId = req.user._id
-  Restaurant.find({ userId })
+router.get("/", (req, res) => {
+  const userId = res.locals.user._id;
+  const userName = res.locals.user.name || res.locals.user.email.split('@', 1);
+  Restaurant
+    .find({ userId })
     .lean()
-    .then((restaurants) => res.render('index', { restaurants }))
-    .catch(err => console.log(err))
+    .sort({ _id: "asc" })
+    .then((restaurants) => res.render("index", { restaurants, userName }));
 })
 
 //新增搜尋功能

@@ -18,7 +18,7 @@ require('./config/mongoose')
 
 
 const app = express()
-const port = 3001
+
 
 
 
@@ -59,6 +59,6 @@ app.use(routes)
 
 
 
-app.listen(port, () =>{
+app.listen(PORT, () =>{
   console.log(`Express is listening on http://localhost:${PORT}`)
 })
